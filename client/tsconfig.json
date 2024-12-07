@@ -32,7 +32,9 @@
       "@layouts/*": ["./layouts/*"],
       "@layouts": ["./layouts/index.ts"],
       "@utils/*": ["./utils/*"],
-      "@utils": ["./utils/index.ts"]
+      "@utils": ["./utils/index.ts"],
+      "@stores/*": ["./stores/*"],
+      "@stores": ["./stores/index.ts"]
     }
   },
   "include": ["src"]

@@ -5,9 +5,11 @@ import ProtectedLayout from "./protectedLayout";
 import PublicLayout from "./publicLayout";
 
 import LoginPage from "@pages/login";
+import RegisterPage from "@pages/register";
 import ErrorPage from "@pages/error";
 import HomePage from "@pages/home";
 import ProtectedPage from "@pages/protected";
+import ForgotPasswordPage from "@pages/forgot-password";
 
 const router = createBrowserRouter([
   {
@@ -18,11 +20,19 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: HomePage,
+        Component: LoginPage,
       },
       {
         path: ROUTES_APP.LOGIN,
         Component: LoginPage,
+      },
+      {
+        path: ROUTES_APP.REGISTER,
+        Component: RegisterPage,
+      },
+      {
+        path: ROUTES_APP.FORGOT_PASSWORD,
+        Component: ForgotPasswordPage,
       },
       // {
       //   path: ROUTES_APP.PAGE_ONE,
