@@ -5,6 +5,8 @@ import { ROUTES_APP } from "@constants";
 import useToastStore, { ToastState } from "@stores/toastStore";
 import { useState } from "react";
 import styles from "./index.module.css";
+import RecaptchaModal from "@components/recaptcha-modal";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 type RegisterStages =
   | "fill:email/password"
@@ -76,6 +78,24 @@ const RegisterPage = () => {
     }
   };
 
+  const backToPreviousStage = () => {
+    const currentStage = registerStages;
+    let backToStage = currentStage;
+    if (
+      currentStage === "fill:email/password" ||
+      currentStage === "fill:personal-info"
+    ) {
+      backToStage = "fill:email/password";
+    }
+    setRegisterStages(backToStage);
+  };
+
+  const handleVerifyRecaptcha = ({ passed }: { passed: boolean }) => {
+    if (passed) {
+      console.log("passed verify human");
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.logo}>Register new account</div>
@@ -128,6 +148,9 @@ const RegisterPage = () => {
           {(registerStages === "fill:personal-info" ||
             registerStages === "quizz:security") && (
             <>
+              <div className={styles.backButton} onClick={backToPreviousStage}>
+                <IoIosArrowRoundBack size={30} />
+              </div>
               <div className={styles.inputContainer}>
                 <p className={styles.titleInput}>First name</p>
                 <input
@@ -191,6 +214,10 @@ const RegisterPage = () => {
           </>
         )}
       </div>
+
+      {registerStages === "quizz:security" && (
+        <RecaptchaModal onVerifyRecaptcha={handleVerifyRecaptcha} />
+      )}
     </div>
   );
 };

@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.closeIcon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.titleModal {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.recaptchaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
