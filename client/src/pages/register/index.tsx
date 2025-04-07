@@ -1,9 +1,12 @@
-import googleIcon from "@assets/google.png";
-import facebookIcon from "@assets/facebook.png";
+import { useState } from "react";
+
 import { Link } from "react-router-dom";
+
+import facebookIcon from "@assets/facebook.png";
+import googleIcon from "@assets/google.png";
 import { ROUTES_APP } from "@constants";
 import useToastStore, { ToastState } from "@stores/toastStore";
-import { useState } from "react";
+
 import styles from "./index.module.css";
 
 type RegisterStages =

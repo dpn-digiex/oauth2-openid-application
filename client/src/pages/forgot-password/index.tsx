@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { ROUTES_APP } from "@constants";
+
 import { Link } from "react-router-dom";
+
+import { ROUTES_APP } from "@constants";
 import useToastStore, { ToastState } from "@stores/toastStore";
+
 import styles from "./index.module.css";
 
 const ForgotPasswordPage = () => {

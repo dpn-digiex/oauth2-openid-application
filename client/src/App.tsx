@@ -1,11 +1,13 @@
 import ToastNotifyWrapper from "@components/toast-notify";
-import router from "@layouts/router";
-import { RouterProvider } from "react-router-dom";
+import { AuthProvider } from "@contexts/AuthProvider";
+import AppRouter from "@router/AppRouter";
 
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
       <ToastNotifyWrapper />
     </>
   );
