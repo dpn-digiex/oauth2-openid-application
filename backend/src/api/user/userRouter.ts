@@ -25,7 +25,11 @@ userRegistry.registerPath({
   method: "get",
   path: "/users/{id}",
   tags: ["User"],
-  request: { params: GetUserSchema.shape.params },
+  request: {
+    params: z.object({
+      id: z.string().describe("User ID"),
+    }),
+  },
   responses: createApiResponse(UserSchema, "Success"),
 });
 

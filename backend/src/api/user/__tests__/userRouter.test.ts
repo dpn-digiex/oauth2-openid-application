@@ -4,7 +4,7 @@ import request from "supertest";
 import type { User } from "@/api/user/userModel";
 import { users } from "@/api/user/userRepository";
 import type { ServiceResponse } from "@/common/models/serviceResponse";
-import { app } from "@/server";
+import { app } from "@/index";
 
 describe("User API Endpoints", () => {
   describe("GET /users", () => {

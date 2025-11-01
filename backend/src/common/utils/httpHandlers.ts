@@ -13,7 +13,8 @@ export const validateRequest = (schema: ZodSchema) => (req: Request, res: Respon
     schema.parse({ body: req.body, query: req.query, params: req.params });
     next();
   } catch (err) {
-    const errorMessage = `Invalid input: ${(err as ZodError).errors.map((e) => e.message).join(", ")}`;
+    const zodError = err as ZodError;
+    const errorMessage = `Invalid input: ${zodError.issues.map((e) => e.message).join(", ")}`;
     const statusCode = StatusCodes.BAD_REQUEST;
     const serviceResponse = ServiceResponse.failure(errorMessage, null, statusCode);
     return handleServiceResponse(serviceResponse, res);
