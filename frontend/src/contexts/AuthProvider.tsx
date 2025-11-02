@@ -17,7 +17,7 @@ interface AuthProviderProps {
 }
 
 const MOCK_AUTH_DATA: AuthData = {
-  roles: [ROLES_NAME.ADMIN],
+  roles: [ROLES_NAME.USER],
   user: {
     id: "1",
     name: "Admin",
